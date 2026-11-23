@@ -1,0 +1,16 @@
+name: Render Short
+on: [push, workflow_dispatch]
+permissions:
+  contents: read
+  actions: write
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg fonts-dejavu-core
+      - run: ./build.sh
+      - uses: actions/upload-artifact@v4
+        with:
+          name: rumah-tanah-adem-short
+          path: rumah-tanah-adem-short.mp4
