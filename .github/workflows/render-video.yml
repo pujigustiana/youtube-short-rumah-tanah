@@ -9,7 +9,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg fonts-dejavu-core
-      - run: ./build.sh
+      - run: bash build.sh
       - uses: actions/upload-artifact@v4
         with:
           name: rumah-tanah-adem-short
